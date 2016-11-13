@@ -3,7 +3,9 @@ package org.elevenfifty.smoothie.beans;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Recipe {
+import org.elevenfifty.smoothie.decoratored.Item;
+
+public class Recipe implements Item {
 
 	private String name;
 	private List<Ingredient> ingredients;
@@ -47,4 +49,16 @@ public class Recipe {
 		this.ingredients = ingredients;
 	}
 
+	@Override
+	public List<Recipe> getRecipt() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public void consumeIngredients() {
+		for (Ingredient in : getIngredients()) {
+			in.setQty(in.getQty() - 1);
+		}
+	}
 }
